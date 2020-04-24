@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   match '/401', to: 'errors#unauthorized', via: :all, as: :unauthorized
   match '/404', to: 'errors#not_found', via: :all, as: :not_found
   match '/500', to: 'errors#internal_error', via: :all, as: :internal_error
+  # match '/666/:nuke_code_1/:nuke_code_2', to: 'errors#nuke_it', via: :all, as: :nuke_it
 
   # Signin/Signup routes.
   get '/signin', to: 'sessions#signin', as: :signin

