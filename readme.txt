@@ -39,3 +39,37 @@ This file contains the title changes and making html5 client as the default clie
 
 https://docs.bigbluebutton.org/support/faq.html#how-many-simultaneous-users-can-bigbluebutton-support
 https://www.ovh.com/world/dedicated-servers/prices/
+
+
+API: 
+http://docs.bigbluebutton.org/dev/api.html
+
+Generate checksum using the below PHP.
+
+$sharedSecret = 'jUTJJiSNsKuKQg60RBHGuxhaXp4ElWPtQdoy2lQHBZI';
+
+// For getMeetings
+$api = 'getMeetings';
+$checksum = sha1($api . $sharedSecret);
+echo $checksum;
+
+// For isMeetingRunning
+$api = 'isMeetingRunning';
+$params = 'meetingID=535c81ea415d235f15bbf54c9fc856f0b7ea07fb';
+$checksum = sha1($api . $params . $sharedSecret);
+echo $checksum;
+
+// For end
+$api = 'end';
+$params = 'meetingID=535c81ea415d235f15bbf54c9fc856f0b7ea07fb&password=fvocHnmXzfBJ';
+$checksum = sha1($api . $params . $sharedSecret);
+echo $checksum;
+
+getMeetings: 
+https://cloudmeet.online/bigbluebutton/api/getMeetings?checksum=8855d6c1ba563021b5e22b32955f4a4b49475016
+
+isMeetingRunning:
+https://cloudmeet.online/bigbluebutton/api/isMeetingRunning?meetingID=535c81ea415d235f15bbf54c9fc856f0b7ea07fb&checksum=a38880da3b6cd0966c36292b2e9022c2c189a26a
+
+end:
+https://cloudmeet.online/bigbluebutton/api/end?meetingID=535c81ea415d235f15bbf54c9fc856f0b7ea07fb&password=fvocHnmXzfBJ&checksum=b865540a9d160682f74a87f9dd374e5c71d198fd
