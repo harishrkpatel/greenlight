@@ -14,7 +14,6 @@ docker-compose up -d
 
 sudo bbb-conf --restart 
 
-
 # Whitelabel changes
 
 a) 
@@ -35,13 +34,14 @@ This file contains the title changes and making html5 client as the default clie
 /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml 
 
 
-
+SIZING:
 
 https://docs.bigbluebutton.org/support/faq.html#how-many-simultaneous-users-can-bigbluebutton-support
 https://www.ovh.com/world/dedicated-servers/prices/
 
 
 API: 
+
 http://docs.bigbluebutton.org/dev/api.html
 
 Generate checksum using the below PHP.
