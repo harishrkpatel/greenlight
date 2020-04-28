@@ -1,5 +1,11 @@
 # Installation instructions
 
+Setup on dedicated host:
+Server type: bbb-server.png
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04
+https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
+
+
 https://docs.bigbluebutton.org/2.2/install.html
 [CustomGreenlight] https://docs.bigbluebutton.org/greenlight/gl-customize.html 
 
@@ -13,6 +19,7 @@ docker-compose up -d
 # Restart server 
 
 sudo bbb-conf --restart 
+sudo bbb-conf --check
 
 # Whitelabel changes
 
@@ -32,6 +39,11 @@ The other whitelabel changes are on the public documentation of Greenlight & BBB
 
 This file contains the title changes and making html5 client as the default client.
 /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml 
+
+This file contains module configuration for the config xml.
+/var/www/bigbluebutton/client/conf/config.xml
+
+http://docs.bigbluebutton.org/client-configuration.html#videoconf-module
 
 
 SIZING:
@@ -73,3 +85,12 @@ https://cloudmeet.online/bigbluebutton/api/isMeetingRunning?meetingID=535c81ea41
 
 end:
 https://cloudmeet.online/bigbluebutton/api/end?meetingID=535c81ea415d235f15bbf54c9fc856f0b7ea07fb&password=fvocHnmXzfBJ&checksum=b865540a9d160682f74a87f9dd374e5c71d198fd
+
+
+
+
+https://wellness.connectandheal.com/video/bbb/joinCMMeeting?callID=15565&attendeeType=d1
+http://cnh.local/video/bbb/joinCMMeeting?callID=15565&attendeeType=d1
+
+https://wellness.connectandheal.com/video/bbb/joinCMMeeting?callID=15565&attendeeType=pat
+http://cnh.local/video/bbb/joinCMMeeting?callID=15565&attendeeType=pat
