@@ -15,6 +15,7 @@ docker-compose down
 ./scripts/image_build.sh greenlight_hp_forked release-v2
 docker-compose up -d
 
+docker exec greenlight-v2 bundle exec rake user:create["Harish Patel","harish@logicloop.io","Harish@3214","admin"]
 
 # Restart server 
 
@@ -29,6 +30,11 @@ Also this same file is used to stop the default presentation from showing up.
 
 vi /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
 
+Keys modified are 
+beans.presentationService.defaultUploadedPresentation
+defaultWelcomeMessage=Welcome to <b>%%CONFNAME%%</b>!<br><br>To join the audio bridge click the phone button.  Use a headset to avoid causing background noise for others.
+defaultWelcomeMessageFooter=...
+
 b) 
 The default PDF can be replaced by changing the files here 
 /var/www/bigbluebutton-default/default.pdf
@@ -38,18 +44,31 @@ c)
 The other whitelabel changes are on the public documentation of Greenlight & BBB server.
 
 This file contains the title changes and making html5 client as the default client.
-/usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml 
+/usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml
+
+    clientTitle: CloudMeet
+    appName: CloudMeet HTML5 Client
+    copyright: ""
+    helpLink: https://cnh.cloudmeet.online
 
 This file contains module configuration for the config xml.
 /var/www/bigbluebutton/client/conf/config.xml
 
 http://docs.bigbluebutton.org/client-configuration.html#videoconf-module
 
+Favicon changes
+/var/www/bigbluebutton-default/favicon.ico
+
+
+docker exec greenlight-v2 bundle exec rake user:create["Harish","harish@logicloop.io","Harish@3214","admin"]
 
 SIZING:
 
 https://docs.bigbluebutton.org/support/faq.html#how-many-simultaneous-users-can-bigbluebutton-support
+https://docs.bigbluebutton.org/support/faq.html#bandwidth-requirements
+https://docs.bigbluebutton.org/support/faq.html#what-are-the-bandwidth-requirements-for-running-a-bigbluebutton-server
 https://www.ovh.com/world/dedicated-servers/prices/
+https://groups.google.com/forum/#!topic/bigbluebutton-dev/s9V-Bns5MTQ
 
 
 API: 
